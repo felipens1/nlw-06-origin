@@ -12,7 +12,7 @@
 <br>
 
 <p align="center">
-  <img alt="OriginSix" src="./assets/beautysaloon.png" width="100%">
+  <img alt="OriginSix" src="./assets/beautysaloon.jpg" width="100%">
 </p>
 
 ## Tecnologias
