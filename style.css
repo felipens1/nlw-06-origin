@@ -36,6 +36,9 @@ img {
 
   /* Fonts */
   --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;  
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
 }
 
 /* -------------------------------------- BASE */
@@ -45,7 +48,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--body-font);
   font-size: 1rem;
   font-weight: 400;
 
@@ -56,7 +59,7 @@ body {
 }
 
 .title {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--title-font);
   font-size: var(--title-font-size);
   font-weight: 700;
 
@@ -76,7 +79,7 @@ body {
   padding: 0 2rem;
   border-radius: 0.25rem;
 
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--body-font);
   font-size: 1rem;
   font-weight: 500;
 
@@ -119,11 +122,15 @@ body {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section .title {
   margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -152,14 +159,10 @@ body {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
 }
 
-main {
-  margin-top: calc(var(--header-height) + 2rem);
-}
-
 /* -------------------------------------- LOGO */
 
 .logo {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--title-font);
   font-size: 1.31rem;
   font-weight: 700;
 
@@ -195,7 +198,8 @@ nav ul li a {
   position: relative;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {  
   color: var(--base-color);
 }
 
@@ -210,7 +214,8 @@ nav ul li a::after {
   bottom: -1.5rem;  
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+  nav ul li a.active::after {
   width: 100%;
   transition-property: width;
   transition-duration: 0.2s;
@@ -297,13 +302,13 @@ nav.show div.icon-close {
   background: var(--base-color-second);
   position: absolute;
   top: -16.8%;
-  left: 16.7%;
+  left: 16%;
   z-index: 0;
 }
 
 #home .image img {
   position: relative;
-  right: 2.93rem;
+  right: 2.90rem;
 }
 
 #home .image img,
@@ -492,6 +497,10 @@ footer {
   background: var(--base-color);
 }
 
+footer.section {
+  padding: 4rem 0;
+}
+
 footer .logo {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -548,12 +557,134 @@ footer .social a:hover {
 
 /*** Media Queries ***/
 /* extra large devices : 1200 > * */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  nav .menu {
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul a.title {
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul a.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  main {
+    margin-top: var(--header-height);
+  }      
+
+  #home .container {
+    grid-auto-flow: column;    
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #home .image {
+    max-width: 33rem;
+    order: 1;
+  }
+
+  #home .image img {
+    right: 0;
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }  
+
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  footer.section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
+  }
+}
+
 /* large devices       : 1023 > * */
 /* large devices       :  992 > * */
-/* medium devices      :  767 > * */
 
+/* medium devices      :  767 > * */
 @media (min-width: 992px) {
   :root {
     --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.25rem;
   }
+
+  main {
+    margin-top: var(--header-height);
+  }      
 }
