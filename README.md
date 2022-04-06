@@ -15,6 +15,8 @@
   <img alt="OriginSix" src="./assets/beautysaloon.jpg" width="100%">
 </p>
 
+[Beautysaloon](https://felipens1.github.io/nlw-06-origin/) é um projeto da nlw da [Rocketseat](https://rocketseat.com.br).
+
 ## Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
